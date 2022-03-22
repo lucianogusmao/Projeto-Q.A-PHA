@@ -1,8 +1,7 @@
 *** Settings ***
-Documentation    Aqui estarão todos os elementos mapeados da tela HOME.    
+Documentation        Aqui estarão presentes todos os elementos mapeados da tela Home.
 
 *** Variables ***
-
 &{HOME_PAGE}
 ...           title=My Store
 ...           input_busca=search_query_top

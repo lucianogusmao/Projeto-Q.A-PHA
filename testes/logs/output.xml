@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.2 on win32)" generated="20220317 21:05:57.746" rpa="false" schemaversion="2">
+<suite id="s1" name="Webautomation" source="C:\Users\lucia\Desktop\CURSO ROBOT - PHA\webautomation.robot">
+<test id="s1-t1" name="Caso de Teste 01: Pesquisar produto existente">
+<kw name="Abrir navegador" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220317 21:05:58.732" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20220317 21:05:58.731" endtime="20220317 21:06:02.952"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220317 21:06:02.953" endtime="20220317 21:06:03.096"/>
+</kw>
+<status status="PASS" starttime="20220317 21:05:58.729" endtime="20220317 21:06:03.098"/>
+</kw>
+<kw name="Acessar a página home do site Automation Practice">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220317 21:06:03.102" level="INFO">Opening url 'http://automationpractice.com/index.php'</msg>
+<status status="PASS" starttime="20220317 21:06:03.101" endtime="20220317 21:06:13.773"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>${HOME_PAGE.title}</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220317 21:06:13.876" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" starttime="20220317 21:06:13.773" endtime="20220317 21:06:13.877"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${HOME_PAGE.input_busca}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220317 21:06:13.877" endtime="20220317 21:06:14.012"/>
+</kw>
+<status status="PASS" starttime="20220317 21:06:03.099" endtime="20220317 21:06:14.012"/>
+</kw>
+<kw name="Digitar o nome do produto &quot;Blouse&quot; no campo de pesquisa" sourcename="Digitar o nome do produto &quot;${PRODUTO}&quot; no campo de pesquisa">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${HOME_PAGE.input_busca}</arg>
+<arg>${PRODUTO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220317 21:06:14.022" level="INFO">Typing text 'Blouse' into text field 'search_query_top'.</msg>
+<status status="PASS" starttime="20220317 21:06:14.017" endtime="20220317 21:06:15.036"/>
+</kw>
+<status status="PASS" starttime="20220317 21:06:14.015" endtime="20220317 21:06:15.036"/>
+</kw>
+<kw name="Clicar no botão pesquisar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${HOME_PAGE.btn_buscar}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220317 21:06:15.048" endtime="20220317 21:06:15.181"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${HOME_PAGE.btn_buscar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220317 21:06:15.185" level="INFO">Clicking element '//*[@class="btn btn-default button-search"]'.</msg>
+<status status="PASS" starttime="20220317 21:06:15.182" endtime="20220317 21:06:25.510"/>
+</kw>
+<status status="PASS" starttime="20220317 21:06:15.046" endtime="20220317 21:06:25.511"/>
+</kw>
+<kw name="Conferir se o produto Blouse foi listado no site">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PRODUTO_PAGE.img_blouse}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220317 21:06:25.514" endtime="20220317 21:06:25.653"/>
+</kw>
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>${PRODUTO_PAGE.img_blouse}</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20220317 21:06:25.717" level="INFO">Current page contains image '//*[@src='http://automationpractice.com/img/p/7/7-home_default.jpg']'.</msg>
+<status status="PASS" starttime="20220317 21:06:25.654" endtime="20220317 21:06:25.717"/>
+</kw>
+<status status="PASS" starttime="20220317 21:06:25.512" endtime="20220317 21:06:25.717"/>
+</kw>
+<kw name="Fechar navegador" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220317 21:06:26.195" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220317 21:06:25.720" endtime="20220317 21:06:26.196"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220317 21:06:26.196" endtime="20220317 21:06:29.850"/>
+</kw>
+<status status="PASS" starttime="20220317 21:06:25.719" endtime="20220317 21:06:29.851"/>
+</kw>
+<tag>PESQUISA</tag>
+<status status="PASS" starttime="20220317 21:05:58.726" endtime="20220317 21:06:29.852"/>
+</test>
+<doc>Aqui neste arquivo estarão presentes todos os testes
+Web automatizados com suas Keywords.</doc>
+<status status="PASS" starttime="20220317 21:05:57.759" endtime="20220317 21:06:29.857"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">PESQUISA</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Webautomation">Webautomation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
